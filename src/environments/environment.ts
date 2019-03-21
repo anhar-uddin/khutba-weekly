@@ -3,7 +3,26 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyBRXVq_5vpa_DYqfaEzHDkpZxFy8cecknU',
+    authDomain: 'khutba-weekly.firebaseapp.com',
+    databaseURL: 'https://khutba-weekly.firebaseio.com',
+    projectId: 'khutba-weekly',
+    storageBucket: 'khutba-weekly.appspot.com',
+    messagingSenderId: '36129061080'
+  }
+};
+
+export const firebaseCofig = {
+  firebase: {
+    apiKey: 'AIzaSyBRXVq_5vpa_DYqfaEzHDkpZxFy8cecknU',
+    authDomain: 'khutba-weekly.firebaseapp.com',
+    databaseURL: 'https://khutba-weekly.firebaseio.com',
+    projectId: 'khutba-weekly',
+    storageBucket: 'khutba-weekly.appspot.com',
+    messagingSenderId: '36129061080'
+  }
 };
 
 /*

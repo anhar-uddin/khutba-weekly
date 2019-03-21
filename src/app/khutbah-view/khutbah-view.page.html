@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
+    </ion-buttons>
+    <ion-title>K</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div class="header-khutbah">
+    <div class="scetion-buttons">
+      <div class="section-button">
+        Arabic Intro
+      </div>
+      <div class="section-button">
+        Point 1
+      </div>
+      <div class="section-button">
+        Point 2
+      </div>
+      <div class="section-button">
+        Point 3
+      </div>
+      <div class="section-button">
+        Arabic Middle
+      </div>
+      <div class="section-button">
+        Action 1
+      </div>
+      <div class="section-button">
+        Action 2
+      </div>
+      <div class="section-button">
+        Action 3
+      </div>
+      <div class="section-button">
+        End
+      </div>
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar" id="myBar"></div>
+    </div>
+  </div>
+  <ion-slides pager="false" *ngFor="let khutbah of khutbahSermons | async">
+    <ion-slide (ionScroll)="onPageScroll($event)"> 
+      <div class="container">
+        <div class="timeline-block timeline-block-right"
+          *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
+          <div class="marker"></div>
+          <div class="timeline-content">
+            <span>{{action.text}}</span>
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div *ngFor="let action of khutbah.khutbah.action_2 ">
+        {{action.text}}
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div *ngFor="let action of khutbah.khutbah.action_3 ">
+        {{action.text}}
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
