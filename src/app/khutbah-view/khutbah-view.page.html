@@ -5,18 +5,66 @@
     </ion-buttons>
     <ion-title>K</ion-title>
   </ion-toolbar>
-</ion-header>
-
-<ion-content >
-  <div class="header-khutbah">
-    <div class="scetion-buttons">
-      <div class="section-button">
+  <div class="header-khutbah" #khutbahHeader>
+    <!-- Intro -->
+    <!-- <div class="scetion-buttons" *ngIf="activeSection === 'arabic1'">
+      <div #arabic1Btn class="section-button" [class.active-btn]="activeSection === 'arabic1'"
+        (click)="scrollTo(arabic1)">
         Arabic Intro
       </div>
-      <div class="section-button">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div> -->
+    <!-- Point 1 -->
+    <!-- <div class="scetion-buttons" *ngIf="activeSection === 'point1'">
+      <span class="dot"></span>
+      <div #arabic1Btn class="section-button" [class.active-btn]="activeSection === 'arabic1'"
+        (click)="scrollTo(arabic1)">
         Point 1
       </div>
-      <div class="section-button">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div> -->
+
+    <!-- Point 3 -->
+    <!-- <div class="scetion-buttons" *ngIf="activeSection === 'point2'">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <div #arabic1Btn class="section-button" [class.active-btn]="activeSection === 'arabic1'"
+        (click)="scrollTo(arabic1)">
+        Point 3
+      </div>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div> -->
+
+    <!-- <ion-buttons slot="end">
+        <ion-button (click)="presentPopover($event)">
+          <ion-icon slot="icon-only" name="more"></ion-icon>
+        </ion-button>
+      </ion-buttons> -->
+    <!-- <div #arabic1Btn class="section-button" [class.active-btn]="activeSection === 'arabic1'" (click)="scrollTo(arabic1)">
+        Arabic Intro
+      </div>
+      <div #point1Btn class="section-button" [class.active-btn]="activeSection === 'point1'" (click)="scrollTo(point1)">
+        Point 1
+      </div>
+      <div #point2Btn class="section-button" [class.active-btn]="activeSection === 'point2'" (click)="scrollTo(point2)">
         Point 2
       </div>
       <div class="section-button">
@@ -36,33 +84,111 @@
       </div>
       <div class="section-button">
         End
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
     <div class="progress-container">
       <div class="progress-bar" id="myBar"></div>
     </div>
   </div>
-  <ion-slides pager="false" *ngFor="let khutbah of khutbahSermons | async">
-    <ion-slide (ionScroll)="onPageScroll($event)"> 
-      <div class="container">
-        <div class="timeline-block timeline-block-right"
-          *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
-          <div class="marker"></div>
-          <div class="timeline-content">
-            <span>{{action.text}}</span>
-          </div>
+</ion-header>
+<ion-content [scrollEvents]="true" (ionScroll)="onPageScroll($event)">
+  <div *ngFor="let khutbah of khutbahSermons | async" #mainContainer>
+    <div class="sticky" [class.is-sticky]="activeSection === 'arabic1'">
+      Arabic Intro
+    </div>
+    <div class="container" #arabic1>
+      <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
+        <div class="marker"></div>
+        <div class="timeline-content">
+          <div [class.arabic-card]="action.type === 'arabic'">{{action.text}}</div>
         </div>
       </div>
-    </ion-slide>
-    <ion-slide>
-      <div *ngFor="let action of khutbah.khutbah.action_2 ">
-        {{action.text}}
+    </div>
+
+    <!-- Point 1 -->
+    <div class="sticky">
+      Point 1
+    </div>
+    <div class="container" #point1>
+      <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
+        <div class="marker"></div>
+        <div class="timeline-content">
+          <span>{{action.text}}</span>
+        </div>
       </div>
-    </ion-slide>
-    <ion-slide>
-      <div *ngFor="let action of khutbah.khutbah.action_3 ">
-        {{action.text}}
+    </div>
+    <!-- Point 2 -->
+    <div class="sticky">
+      Point 2
+    </div>
+    <div class="container" #point2>
+      <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
+        <div class="marker"></div>
+        <div class="timeline-content">
+          <span>{{action.text}}</span>
+        </div>
       </div>
-    </ion-slide>
-  </ion-slides>
+    </div>
+    <!-- Point 3 -->
+    <div class="sticky">
+      Point 3
+    </div>
+    <div class="container" #point3>
+      <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
+        <div class="marker"></div>
+        <div class="timeline-content">
+          <span>{{action.text}}</span>
+        </div>
+      </div>
+    </div>
+    <!-- Arabic 2 -->
+    <div class="sticky">
+      Arabic 2
+    </div>
+    <div class="container" #arabic2>
+      <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
+        <div class="marker"></div>
+        <div class="timeline-content">
+          <span>{{action.text}}</span>
+        </div>
+      </div>
+    </div>
+    <!-- Action 1 -->
+    <div class="sticky">
+      Action 1
+    </div>
+    <div class="container" #action1>
+      <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
+        <div class="marker"></div>
+        <div class="timeline-content">
+          <span>{{action.text}}</span>
+        </div>
+      </div>
+    </div>
+    <!-- Action 2 -->
+    <div class="sticky">
+      Action 2
+    </div>
+    <div class="container" #action2>
+      <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
+        <div class="marker"></div>
+        <div class="timeline-content">
+          <span>{{action.text}}</span>
+        </div>
+      </div>
+    </div>
+    <!-- Action 3 -->
+    <div class="sticky">
+      Action 3
+    </div>
+    <div class="container" #action3>
+      <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
+        <div class="marker"></div>
+        <div class="timeline-content">
+          <span>{{action.text}}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </ion-content>

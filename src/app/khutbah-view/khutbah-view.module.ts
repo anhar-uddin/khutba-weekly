@@ -5,6 +5,8 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { KhutbahViewPage } from './khutbah-view.page';
+import { SermonViewComponent } from './sub-components/sermon-view/sermon-view.component';
+import { PopoverPage } from '../buttons-popover/buttons-popover';
 
 @NgModule({
   imports: [
@@ -18,6 +20,7 @@ import { KhutbahViewPage } from './khutbah-view.page';
       }
     ])
   ],
-  declarations: [KhutbahViewPage]
+  entryComponents: [PopoverPage],
+  declarations: [KhutbahViewPage, SermonViewComponent, PopoverPage]
 })
 export class KhutbahViewModule { }
