@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'khutbah-view',
     loadChildren: './khutbah-view/khutbah-view.module#KhutbahViewModule'
+  },
+  {
+    path: 'admin',
+    loadChildren: './admin/admin.module#AdminPageModule'
   }
 ];
 

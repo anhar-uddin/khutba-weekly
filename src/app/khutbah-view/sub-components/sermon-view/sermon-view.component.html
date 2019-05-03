@@ -1,7 +1,7 @@
 <div class="sticky" [class.is-sticky]="sectionActive">
-  Arabic Intro
+  {{title}}
 </div>
-<div class="container" #arabic1>
+<div class="container" #container>
   <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah; let i = index ">
     <div class="marker"></div>
     <div class="timeline-content">

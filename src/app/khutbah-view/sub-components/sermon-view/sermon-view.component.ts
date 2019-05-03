@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { Component, OnInit, Input, HostListener, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-sermon-view',
@@ -6,18 +6,10 @@ import { Component, OnInit, Input, HostListener } from '@angular/core';
   styleUrls: ['sermon-view.component.scss']
 })
 export class SermonViewComponent implements OnInit {
+  @Input() title;
+  @Input() id;
   @Input() khutbah: any[];
   @Input() sectionActive: Boolean = false;
-
   ngOnInit() {
   }
-
-  // @HostListener('window:scroll', [])
-  // onWindowScroll(event) {
-  //   console.log('efnhekj');
-  //   const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  //   const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  //   const scrolled = (winScroll / height) * 100;
-  //   document.getElementById('myBar').style.width = scrolled + '%';
-  // }
 }

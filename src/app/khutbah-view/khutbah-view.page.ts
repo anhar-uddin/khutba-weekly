@@ -16,12 +16,12 @@ export class KhutbahViewPage implements OnInit {
   khutbahSermons: Observable<any>;
   activeSection = 'arabic1';
   @ViewChild('mainContainer') mainContainer: ElementRef;
-  @ViewChild('arabic1') arabic1: ElementRef;
-  @ViewChild('arabic1Btn') arabic1Btn: ElementRef;
-  @ViewChild('point1') point1: ElementRef;
-  @ViewChild('point1Btn') point1Btn: ElementRef;
-  @ViewChild('point2') point2: ElementRef;
-  @ViewChild('point2Btn') point2Btn: ElementRef;
+  // @ViewChild('arabic1') arabic1: ElementRef;
+  // @ViewChild('arabic1Btn') arabic1Btn: ElementRef;
+  // @ViewChild('point1') point1: ElementRef;
+  // @ViewChild('point1Btn') point1Btn: ElementRef;
+  // @ViewChild('point2') point2: ElementRef;
+  // @ViewChild('point2Btn') point2Btn: ElementRef;
   @ViewChild('khutbahHeader') khutbahHeader: ElementRef;
   @ViewChild('headerBtnsSection') headerBtnsSection: ElementRef;
 
@@ -65,16 +65,16 @@ export class KhutbahViewPage implements OnInit {
     const height = (this.mainContainer.nativeElement.offsetHeight - e.target.scrollHeight) + 100;
     const scrolled = (winScroll / height) * 100;
     document.getElementById('myBar').style.width = scrolled + '%';
-    if (this.point2.nativeElement.getBoundingClientRect().top < 196) {
-      this.activeSection = 'point2';
-      return;
-    } else if (this.point1.nativeElement.getBoundingClientRect().top < 196) {
-      this.activeSection = 'point1';
-      return;
-    } else if (this.arabic1.nativeElement.getBoundingClientRect().top < 196) {
-      this.activeSection = 'arabic1';
-      return;
-    }
+    // if (this.point2.nativeElement.getBoundingClientRect().top < 196) {
+    //   this.activeSection = 'point2';
+    //   return;
+    // } else if (this.point1.nativeElement.getBoundingClientRect().top < 196) {
+    //   this.activeSection = 'point1';
+    //   return;
+    // } else if (this.arabic1.nativeElement.getBoundingClientRect().top < 196) {
+    //   this.activeSection = 'arabic1';
+    //   return;
+    // }
   }
 
   scrollTo(el) {

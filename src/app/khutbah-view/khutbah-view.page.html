@@ -93,7 +93,12 @@
 </ion-header>
 <ion-content [scrollEvents]="true" (ionScroll)="onPageScroll($event)">
   <div *ngFor="let khutbah of khutbahSermons | async" #mainContainer>
-    <div class="sticky" [class.is-sticky]="activeSection === 'arabic1'">
+
+    <app-sermon-view  *ngFor="let script of khutbah.khutbah_scripts" [khutbah]="script.khutbah" [title]="script.title" [id]="script.id"></app-sermon-view>
+    <!-- <app-sermon-view [khutbah]="khutbah.khutbah.arabic_1"></app-sermon-view> -->
+
+
+    <!-- <div class="sticky" [class.is-sticky]="activeSection === 'arabic1'">
       Arabic Intro
     </div>
     <div class="container" #arabic1>
@@ -103,92 +108,6 @@
           <div [class.arabic-card]="action.type === 'arabic'">{{action.text}}</div>
         </div>
       </div>
-    </div>
-
-    <!-- Point 1 -->
-    <div class="sticky">
-      Point 1
-    </div>
-    <div class="container" #point1>
-      <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
-        <div class="marker"></div>
-        <div class="timeline-content">
-          <span>{{action.text}}</span>
-        </div>
-      </div>
-    </div>
-    <!-- Point 2 -->
-    <div class="sticky">
-      Point 2
-    </div>
-    <div class="container" #point2>
-      <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
-        <div class="marker"></div>
-        <div class="timeline-content">
-          <span>{{action.text}}</span>
-        </div>
-      </div>
-    </div>
-    <!-- Point 3 -->
-    <div class="sticky">
-      Point 3
-    </div>
-    <div class="container" #point3>
-      <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
-        <div class="marker"></div>
-        <div class="timeline-content">
-          <span>{{action.text}}</span>
-        </div>
-      </div>
-    </div>
-    <!-- Arabic 2 -->
-    <div class="sticky">
-      Arabic 2
-    </div>
-    <div class="container" #arabic2>
-      <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
-        <div class="marker"></div>
-        <div class="timeline-content">
-          <span>{{action.text}}</span>
-        </div>
-      </div>
-    </div>
-    <!-- Action 1 -->
-    <div class="sticky">
-      Action 1
-    </div>
-    <div class="container" #action1>
-      <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
-        <div class="marker"></div>
-        <div class="timeline-content">
-          <span>{{action.text}}</span>
-        </div>
-      </div>
-    </div>
-    <!-- Action 2 -->
-    <div class="sticky">
-      Action 2
-    </div>
-    <div class="container" #action2>
-      <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
-        <div class="marker"></div>
-        <div class="timeline-content">
-          <span>{{action.text}}</span>
-        </div>
-      </div>
-    </div>
-    <!-- Action 3 -->
-    <div class="sticky">
-      Action 3
-    </div>
-    <div class="container" #action3>
-      <div class="timeline-block timeline-block-right" *ngFor="let action of khutbah.khutbah.arabic_1; let i = index ">
-        <div class="marker"></div>
-        <div class="timeline-content">
-          <span>{{action.text}}</span>
-        </div>
-      </div>
-    </div>
-
+    </div> -->
   </div>
 </ion-content>
